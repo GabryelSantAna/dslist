@@ -10,21 +10,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_name")
+@Table(name = "tb_game")
 public class Game {
  
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
-	
+
 	@Column(name = "game_year")
 	private Integer year;
 	private String genre;
 	private String platforms;
 	private Double score;
-	private String imgUri;
+	private String imgUrl;
+
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
 	public Game() {
@@ -39,7 +43,7 @@ public class Game {
 		this.genre = genre;
 		this.platforms = platforms;
 		this.score = score;
-		this.imgUri = imgUri;
+		this.imgUrl = imgUri;
 		this.shortDescription = shortDescription;
 		this.longDescription = longDescription;
 	}
@@ -93,11 +97,11 @@ public class Game {
 	}
 
 	public String getImgUri() {
-		return imgUri;
+		return imgUrl;
 	}
 
 	public void setImgUri(String imgUri) {
-		this.imgUri = imgUri;
+		this.imgUrl = imgUri;
 	}
 
 	public String getShortDescription() {
